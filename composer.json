@@ -11,9 +11,11 @@
     },
     "require-dev": {
         "joomla/test": "~1.0"
+        "guzzlehttp/guzzle": "~4.2"
     },
     "suggest": {
-        "joomla/registry": "Registry can be used as an alternative to using an array for the package options."
+        "joomla/registry": "Registry can be used as an alternative to using an array for the package options.",
+        "guzzlehttp/guzzle": "Guzzle can be used as a http transport driver"
     },
     "autoload": {
     	"psr-4": {
