@@ -42,7 +42,7 @@ class Guzzle implements TransportInterface
 			throw new \RuntimeException('Cannot use a guzzle transport when fopen() is not available.');
 		}
 
-    $this->options = $options;
+		$this->options = $options;
 	}
 
 	/**
