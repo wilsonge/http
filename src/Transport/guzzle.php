@@ -62,20 +62,20 @@ class Guzzle implements TransportInterface
 	 */
 	public function request($method, UriInterface $uri, $data = null, array $headers = null, $timeout = null, $userAgent = null)
 	{
-	  if ($userAgent)
-	  {
-	    $this->options['defaults']['headers']['user-agent'] = $userAgent;
-	  }
+		if ($userAgent)
+		{
+			$this->options['defaults']['headers']['user-agent'] = $userAgent;
+		}
 
-    if ($timeout)
-    {
-      $this->options['defaults']['timeout'] = $timeout;
-    }
-
-	  $client = new Client($this->options);
-    $request = $client->createRequest($method, $uri->toString());
-    $response = $client->send($request);
-
+		if ($timeout)
+		{
+			$this->options['defaults']['timeout'] = $timeout;
+		}
+	
+		$client = new Client($this->options);
+		$request = $client->createRequest($method, $uri->toString());
+		$response = $client->send($request);
+	
 		return $this->getResponse($response);
 	}
 
@@ -89,17 +89,17 @@ class Guzzle implements TransportInterface
 	 * @since   1.0
 	 * @throws  \UnexpectedValueException
 	 */
-  private function getResponse($guzzleResponse)
-  {
-    // Create the response object.
+	private function getResponse($guzzleResponse)
+	{
+		// Create the response object.
 		$return = new Response;
 
-    $return->body    = $guzzleResponse->getBody();
-    $return->headers = $guzzleResponse->getHeaders();
-    $return->code    = $guzzleResponse->getStatusCode();
+		$return->body    = $guzzleResponse->getBody();
+		$return->headers = $guzzleResponse->getHeaders();
+		$return->code    = $guzzleResponse->getStatusCode();
 
-    return $return;
-  }
+		return $return;
+	}
 
 	/**
 	 * Method to check if http transport stream available for use
